@@ -27,18 +27,15 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "src/assets/KhmerOSfonts",
-                "output": "assets/KhmerOSfonts"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
 
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {
