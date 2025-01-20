@@ -27,11 +27,17 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/KhmerOSfonts",
+                "output": "assets/KhmerOSfonts"
+              }
             ],
             "styles": [
               "src/styles.scss"
             ],
+
             "scripts": []
           },
           "configurations": {
@@ -100,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5a3aa91c-d27e-44a7-b289-6d7e07fad3dc"
   }
 }
