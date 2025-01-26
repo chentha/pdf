@@ -49,7 +49,7 @@ export class PdfComponent {
   //   }
   // }
 
-  async convertToBase64(){
+  async convertToBase64() {
     const base64Promises = this.fileImage.map((url) =>
       this.http.get(url, { responseType: 'blob' }).toPromise().then((blob: any) =>
         this.imageConversionService.convertToBase64(blob)
@@ -344,13 +344,23 @@ export class PdfComponent {
 
 
       ],
-      styles,  // Specify styles object here
+      styles,
       defaultStyle
     };
 
     // console.log(documentDefinition);
     // pdfMake.createPdf(documentDefinition).open();
     // this.showPdf =  pdfMake.createPdf(documentDefinition);
-    pdfMake.createPdf(documentDefinition).open({}, window);
+    // pdfMake.createPdf(documentDefinition).open({}, window);
+
+    // show pdf on own page 
+    const pdfDocGenerator = pdfMake.createPdf(documentDefinition);
+    pdfDocGenerator.getDataUrl((dataUrl) => {
+      const iframe = document.getElementById('pdfIframe') as HTMLIFrameElement;
+      if (iframe) {
+        iframe.src = dataUrl;
+      }
+    });
+    
   }
 }
